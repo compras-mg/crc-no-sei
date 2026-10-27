@@ -1,0 +1,18 @@
+CRC no SEI — bibliotecas incluídas
+
+PDF.js 5.6.205
+Projeto: https://github.com/mozilla/pdf.js
+Distribuição: https://www.npmjs.com/package/pdfjs-dist
+Licença Apache-2.0 em vendor/PDFJS-LICENSE.txt.
+
+Fontes padrão distribuídas com PDF.js
+Licenças em vendor/standard_fonts/LICENSE_FOXIT e LICENSE_LIBERATION.
+
+jsdom 30.1.2
+Dependência apenas de desenvolvimento/testes; não está incluída no runtime
+instalável. O gerenciador de pacotes obtém a dependência quando o desenvolvedor
+executa npm install. Não é necessária para usar a extensão.
+
+As referências a SEI Pro identificam a fonte de exemplos públicos de estrutura
+e comportamento para compatibilidade. O código do adaptador desta extensão é
+uma implementação própria; nenhum arquivo de código do SEI Pro está incluído.

@@ -1,0 +1,75 @@
+{
+  "manifest_version": 3,
+  "name": "CRC no SEI • Minas Gerais",
+  "version": "0.2.0",
+  "description": "Encontre CPFs e CNPJs nos documentos do processo, emita o CRC original no CAGEF e adicione-o ao SEI como documento externo.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.sei.mg.gov.br/*",
+    "https://sei.mg.gov.br/*",
+    "https://www.cagef.mg.gov.br/*",
+    "https://cagef.mg.gov.br/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.sei.mg.gov.br/*",
+        "https://sei.mg.gov.br/*"
+      ],
+      "js": [
+        "sei-button.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.sei.mg.gov.br/*",
+        "https://sei.mg.gov.br/*"
+      ],
+      "css": [
+        "sei-button.css"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "action": {
+    "default_title": "CRC no SEI — abrir painel",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "panel.html"
+      ],
+      "matches": [
+        "https://www.sei.mg.gov.br/*",
+        "https://sei.mg.gov.br/*"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'self'; connect-src 'self' https://www.sei.mg.gov.br https://sei.mg.gov.br https://www.cagef.mg.gov.br https://cagef.mg.gov.br; worker-src 'self'; frame-src 'self' blob:; frame-ancestors 'self' https://www.sei.mg.gov.br https://sei.mg.gov.br; base-uri 'none'; form-action 'none'"
+  }
+}

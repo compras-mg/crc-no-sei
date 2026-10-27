@@ -1,0 +1,139 @@
+/* Escopo exclusivo do CRC: preserva os estilos e o recolhimento da barra nativa. */
+#crc-sei-toolbar {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  /* Os ícones nativos são imagens em linha. "middle" alinha o centro do
+     contêiner à linha de base delas e desloca o botão para baixo. */
+  vertical-align: top;
+  /* Mesma folga vertical de 3px das imagens de 40px da barra nativa. */
+  margin: 3px 2px 3px 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: 13px/1 Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+#crc-sei-launcher {
+  box-sizing: border-box;
+  /* Sem uma segunda linha de base dentro do contêiner da barra. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #126652;
+  border-radius: 6px;
+  background: #176b56;
+  color: #fff;
+  font: 700 12px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: none;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: none;
+  appearance: none;
+}
+
+#crc-sei-launcher:hover { background: #105541; }
+#crc-sei-launcher:focus-visible { outline: 3px solid #147bc0; outline-offset: 2px; }
+#crc-sei-launcher:disabled { opacity: .7; cursor: wait; }
+#crc-sei-launcher-status {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 300px;
+  max-width: 80vw;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid #dfc6b6;
+  border-radius: 5px;
+  background: #fff8f2;
+  color: #803d28;
+  box-shadow: 0 2px 8px #0002;
+  font: 13px/1.4 Arial, Helvetica, sans-serif;
+  text-align: left;
+  white-space: normal;
+}
+#crc-sei-launcher-status[hidden] { display: none; }
+#crc-sei-panel {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 2147483000;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  width: 440px;
+  max-width: calc(100vw - 24px);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #c7d8d1;
+  border-radius: 12px;
+  background: #f2f6f5;
+  box-shadow: 0 10px 40px #102d3a40, 0 2px 8px #102d3a20;
+  text-align: left;
+}
+#crc-sei-panel-frame {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #f2f6f5;
+}
+#crc-sei-panel-loading {
+  position: absolute;
+  inset: 0;
+  background: #f2f6f5;
+  color: #25463b;
+  font: 13px/1.5 Arial, Helvetica, sans-serif;
+}
+#crc-sei-panel-loading .crc-sei-loading-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  padding: 10px 14px;
+  background: #176b56;
+  color: white;
+  font-size: 16px;
+}
+#crc-sei-panel-loading p { margin: 16px; font: inherit; }
+#crc-sei-loading-close {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+  font: 24px/1 Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+#crc-sei-loading-close:hover { background: #ffffff24; }
+#crc-sei-loading-close:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+#crc-sei-panel[hidden], #crc-sei-panel-loading[hidden] { display: none !important; }
+@media (max-width: 480px) {
+  #crc-sei-panel { top: 6px; right: 6px; bottom: 6px; max-width: calc(100vw - 12px); }
+}
+@media print { #crc-sei-toolbar, #crc-sei-panel { display: none !important; } }

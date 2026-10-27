@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRC no SEI</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand-mark" aria-hidden="true">C</div>
+    <div class="app-heading"><h1>CRC no SEI</h1><p>CAGEF · Minas Gerais</p></div>
+    <span class="version">0.1.7</span>
+    <button id="close-panel" class="close-panel" type="button" title="Fechar assistente" aria-label="Fechar assistente de CRC"><span aria-hidden="true">×</span></button>
+  </header>
+  <main>
+    <section class="process-card" aria-labelledby="process-title">
+      <div class="section-top"><h2 id="process-title">Processo de destino</h2><button id="refresh-process" class="text-button" type="button">Atualizar</button></div>
+      <p id="process-number" class="process-number">Localizando o processo…</p>
+      <p id="process-detail" class="muted"></p>
+    </section>
+
+    <section class="card" aria-labelledby="find-title">
+      <div class="step-title"><span class="step-number">1</span><h2 id="find-title">Escolha o fornecedor</h2></div>
+      <button id="scan" class="primary wide" type="button">Buscar CPFs e CNPJs nos documentos</button>
+      <p class="hint">Lê documentos do processo e PDFs com texto selecionável.</p>
+      <div id="scan-progress" hidden><progress id="scan-meter" max="100" value="0"></progress><div class="section-top"><p id="scan-status" class="muted" role="status"></p><button id="cancel-scan" class="text-button" type="button">Parar</button></div></div>
+      <details id="coverage" hidden><summary id="coverage-summary"></summary><ul id="coverage-list" class="coverage-list"></ul></details>
+      <div class="divider"><span>ou informe o CPF/CNPJ</span></div>
+      <form id="manual-form"><label for="manual-cnpj">CPF ou CNPJ do fornecedor</label><div class="input-row"><input id="manual-cnpj" autocomplete="off" spellcheck="false" maxlength="26" placeholder="CPF ou CNPJ"><button class="secondary" type="submit">Adicionar</button></div></form>
+      <p id="names-status" class="muted" role="status"></p>
+      <div id="candidates" class="candidates" role="radiogroup" aria-label="Fornecedores encontrados"></div>
+      <p id="empty-list" class="empty">Os CPFs e CNPJs aparecerão aqui com o nome do fornecedor, quando identificado, e os documentos em que foram encontrados.</p>
+    </section>
+
+    <section id="certificate-section" class="card" aria-labelledby="certificate-title">
+      <div class="step-title"><span class="step-number">2</span><h2 id="certificate-title">Emita e confira o CRC</h2></div>
+      <p id="selected-cnpj" class="muted">Selecione um CPF ou CNPJ para consultar o CAGEF.</p>
+      <button id="generate" class="primary wide" type="button" disabled>Emitir CRC no CAGEF</button>
+      <p id="generation-status" class="muted" role="status"></p>
+      <div id="certificate" hidden>
+        <div class="certificate-head"><span class="badge">PDF original</span><span id="certificate-pages" class="muted"></span></div>
+        <h3 id="supplier-name"></h3>
+        <dl class="metadata"><dt>CPF/CNPJ</dt><dd id="certificate-cnpj"></dd><dt>Gerado em</dt><dd id="certificate-date"></dd><dt>Arquivo</dt><dd id="certificate-file"></dd></dl>
+        <div class="input-row"><button id="preview" type="button" class="secondary">Abrir PDF</button><button id="download" type="button" class="text-button">Baixar cópia</button></div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="attach-title">
+      <div class="step-title"><span class="step-number">3</span><h2 id="attach-title">Adicione ao processo</h2></div>
+      <dl class="metadata"><dt>Documento</dt><dd>Externo</dd><dt>Tipo</dt><dd>CRC</dd><dt>Formato</dt><dd>Nato-digital</dd><dt>Acesso</dt><dd>Público</dd><dt>Data</dt><dd id="document-date">Data de emissão do CRC</dd></dl>
+      <p class="hint">O horário de emissão também será registrado nas observações.</p>
+      <label class="review-option"><input id="review-first" type="checkbox"> Apenas preencher; eu clico em Salvar no SEI</label>
+      <button id="attach" type="button" class="primary wide" disabled>Anexar CRC ao processo</button>
+      <p id="attachment-status" class="muted" role="status"></p>
+      <div id="verify-receipt" hidden><p class="hint">Há uma inclusão em andamento. Confira a árvore do processo antes de tentar outra inclusão.</p><button id="check-receipt" type="button" class="secondary">Verificar inclusão</button><div id="release-row" hidden><label class="review-option"><input id="confirm-not-saved" type="checkbox"> Conferi o processo e descartei o formulário pendente; este CRC não foi incluído.</label><button id="release-receipt" type="button" class="text-button" disabled>Liberar uma nova tentativa</button></div></div>
+      <div id="success" class="success" hidden role="status"></div>
+    </section>
+    <div id="notice" class="notice" hidden role="alert"></div>
+    <footer><p>Os documentos são lidos no seu navegador. CPFs e CNPJs sem nome identificado são consultados no CAGEF para completar a lista. O CRC é emitido e enviado ao SEI quando você solicita.</p><details><summary>Ajuda e diagnóstico</summary><p>O arquivo LEIA-ME.html do pacote explica a instalação e os limites desta versão.</p><button id="diagnostics" type="button" class="text-button">Baixar diagnóstico sem conteúdo dos documentos</button><p id="diagnostic-status" class="hint"></p></details></footer>
+  </main>
+  <script type="module" src="panel.js"></script>
+</body>
+</html>
