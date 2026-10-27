@@ -2,9 +2,11 @@
 
 Extensão para Google Chrome que identifica CPF e CNPJ nos documentos de um processo do SEI/MG, consulta o CAGEF e permite emitir e incluir o Certificado de Registro Cadastral como documento externo.
 
+A versão 0.2.1 corrige a leitura da confirmação de Pessoa Física do CAGEF. A versão 0.2.0 rejeitava a resposta real do portal por tratá-la como JSON estrito.
+
 ## Download
 
-**[Baixar a versão 0.2.0](https://github.com/compras-mg/crc-no-sei/releases/download/v0.2.0/crc-sei-0.2.0.zip)**
+**[Baixar a versão 0.2.1](https://github.com/compras-mg/crc-no-sei/releases/download/v0.2.1/crc-sei-0.2.1.zip)**
 
 [Ver versões disponíveis](https://github.com/compras-mg/crc-no-sei/releases)
 
@@ -19,7 +21,7 @@ O download pelo GitHub exige a instalação manual acima. A extensão não está
 
 ## Atualizar
 
-Guarde uma cópia da pasta anterior. Substitua os arquivos na mesma pasta que o Chrome já carrega, clique em **Recarregar** no cartão da extensão em `chrome://extensions` e atualize a aba do SEI. Confira a versão **0.2.0**.
+Guarde uma cópia da pasta anterior. Substitua os arquivos na mesma pasta que o Chrome já carrega, clique em **Recarregar** no cartão da extensão em `chrome://extensions` e atualize a aba do SEI. Confira a versão **0.2.1**.
 
 ## Utilizar
 
@@ -29,7 +31,7 @@ CPFs e CNPJs são validados pelos dígitos verificadores. Para CPF, a extensão 
 
 ## Verificação e limites
 
-A versão 0.2.0 passou em **219 testes automatizados**, com respostas simuladas para emissão e inclusão. A seleção de Pessoa Física e a ativação do campo CPF foram verificadas no formulário público real do CAGEF, sem informar CPF. A emissão e inclusão de um CRC real por CPF ainda precisam de validação no ambiente de uso.
+A versão 0.2.1 passou em **222 testes automatizados**, com respostas simuladas para emissão e inclusão. A seleção de Pessoa Física e a ativação do campo CPF foram verificadas no formulário público real do CAGEF, sem informar CPF. A emissão e inclusão de um CRC real por CPF ainda precisam de validação no ambiente de uso.
 
 A leitura automática cobre documentos com camada de texto; não há OCR de imagens digitalizadas. CPFs sem pontuação precisam estar imediatamente após o rótulo CPF. O funcionamento depende da disponibilidade do CAGEF, das permissões da unidade e da estrutura do SEI/MG.
 
@@ -41,7 +43,7 @@ As permissões cobrem os domínios do SEI/MG e do CAGEF. O pacote não inclui do
 
 ## Documentação e manutenção
 
-- [Novidades e instruções da versão 0.2.0](ATUALIZACAO.md)
+- [Novidades e instruções da versão 0.2.1](ATUALIZACAO.md)
 - [Manual completo no pacote](LEIA-ME.html)
 - [Avisos de componentes de terceiros](THIRD-PARTY-NOTICES.txt)
 

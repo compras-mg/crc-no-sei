@@ -228,7 +228,7 @@ class OfflineChrome {
       runtime: {
         id: EXTENSION_ID,
         getURL: path => `chrome-extension://${EXTENSION_ID}/${path}`,
-        getManifest: () => ({ version: '0.2.0' }),
+        getManifest: () => ({ version: '0.2.1' }),
         onInstalled: { addListener() {} },
         onMessage: { addListener: listener => { this.listeners.push(listener); } },
         sendMessage: message => new Promise((resolve, reject) => {

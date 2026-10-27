@@ -1,3 +1,13 @@
+# Versão 0.2.1 — correção da consulta por CPF
+
+Corrigida a leitura da resposta ZK que confirma a seleção de Pessoa Física. A extensão agora interpreta referências de campos no formato retornado pelo CAGEF, sem executar código e mantendo a exigência de confirmação do campo CPF.
+
+Foram acrescentados testes com a resposta pública capturada e com confirmações inválidas. A emissão de um CRC real por CPF permanece pendente de validação no uso.
+
+Para atualizar: substitua os arquivos na pasta carregada pelo Chrome, clique em Recarregar em chrome://extensions, confirme 0.2.1 e atualize o SEI.
+
+---
+
 # CRC no SEI · Minas Gerais — versão 0.2.0
 
 A nova versão acrescenta suporte a CPF, mantendo CNPJ numérico e alfanumérico e a correção de reconhecimento do endereço do SEI que utiliza id_protocolo.

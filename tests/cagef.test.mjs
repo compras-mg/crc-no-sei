@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { generateCrc, lookupSupplier } from '../lib/cagef.js';
@@ -405,9 +406,9 @@ test('name lookup preserves official-origin checks, portal blocking and text siz
   assert.equal(requests, 1);
 });
 
-function cpfFixture({identity='012.345.678-90',duplicate=false,confirm=true}={}) {
+function cpfFixture({identity='012.345.678-90',duplicate=false,confirm=true,switchText}={}) {
  const cpfQuery=query().replace("['zul.inp.Textbox','inputA'", "['zul.wgt.Radiogroup','personGroup',{id:'tipoPessoa'},{},[['zul.wgt.Radio','personCpf',{label:'Pessoa Física',value:true},{},[]]]],\n['zul.inp.Textbox','cpfInput',{id:'cpfBox',visible:false},{},[]],\n['zul.inp.Textbox','inputA'");
- const output=[initial(),cpfQuery,JSON.stringify({rs:confirm?[['setAttr',[{$u:'cpfInput'},'visible',true]]]:[]}),searchResult({cnpj:identity,duplicate,name:'Pessoa de Teste'}),'{"rs":[]}',JSON.stringify({rs:[['download',[DOWNLOAD]]]}),PDF];
+ const output=[initial(),cpfQuery,switchText ?? JSON.stringify({rs:confirm?[['setAttr',[{$u:'cpfInput'},'visible',true]]]:[]}),searchResult({cnpj:identity,duplicate,name:'Pessoa de Teste'}),'{"rs":[]}',JSON.stringify({rs:[['download',[DOWNLOAD]]]}),PDF];
  const calls=[];
  return {calls,fetchImpl:async(url,options)=>{calls.push({url,options});assert.ok(calls.length<=output.length);return new Response(output[calls.length-1],{status:200});}};
 }
@@ -422,4 +423,25 @@ test('CPF name lookup never selects a row or emits a certificate',async()=>{
 test('CPF lookup stops for wrong identity, duplicated results or unconfirmed person mode',async()=>{
  for(const options of [{identity:'123.456.789-09'},{duplicate:true},{confirm:false}]) {const f=cpfFixture(options);await assert.rejects(generateCrc('01234567890',{fetchImpl:f.fetchImpl}));assert.ok(f.calls.length<=4);}
  const f=cpfFixture();await assert.rejects(generateCrc('01234567891',{fetchImpl:f.fetchImpl}));assert.equal(f.calls.length,0);
+});
+
+// The real ZK response uses JavaScript object references, not strict JSON.
+test('CPF accepts the real ZK setAttr reference syntax without executing response code', async () => {
+ const f=cpfFixture({switchText:`{"rs":[["setAttr",[{$u:'cpfInput'},"visible",true]]],"rid":3}`});
+ const result=await lookupSupplier('01234567890',{fetchImpl:f.fetchImpl});
+ assert.equal(result.cnpj,'01234567890');assert.equal(f.calls.length,4);
+});
+test('CPF mode confirmation rejects unrelated widgets, false visibility and text impersonating commands',async()=>{
+ for(const switchText of [
+  `{"rs":[["setAttr",[{$u:'inputA'},"visible",true]]]}`,
+  `{"rs":[["setAttr",[{$u:'cpfInput'},"visible",false]]]}`,
+  JSON.stringify({rs:[['alert',[`["setAttr",[{$u:'cpfInput'},"visible",true]]`]]]}),
+  `{"rs":[["setAttr",[{$u:'cpfInput',extra:true},"visible",true]]]}`,
+ ]) {const f=cpfFixture({switchText});await assert.rejects(lookupSupplier('01234567890',{fetchImpl:f.fetchImpl}),e=>e.code==='CAGEF_PROTOCOL');assert.equal(f.calls.length,3);}
+});
+
+test('CPF mode accepts the complete recorded public CAGEF response',async()=>{
+ const switchText=await readFile(new URL('./fixtures/cagef-person-mode.zk',import.meta.url),'utf8');
+ const f=cpfFixture({switchText});const result=await lookupSupplier('01234567890',{fetchImpl:f.fetchImpl});
+ assert.equal(result.cnpj,'01234567890');assert.equal(f.calls.length,4);
 });

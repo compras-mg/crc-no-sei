@@ -1,6 +1,6 @@
 {
   "name": "crc-no-sei",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "type": "module",
   "description": "Emissão de CRC no CAGEF e inclusão assistida de documento externo no SEI de Minas Gerais.",

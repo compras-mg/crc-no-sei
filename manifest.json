@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "CRC no SEI • Minas Gerais",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Encontre CPFs e CNPJs nos documentos do processo, emita o CRC original no CAGEF e adicione-o ao SEI como documento externo.",
   "minimum_chrome_version": "120",
   "permissions": [

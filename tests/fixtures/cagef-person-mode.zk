@@ -1,0 +1,32 @@
+{"rs":[["rm",["iB0Vp7"]],["rm",["iB0Vn7"]],["rm",["iB0Vl7"]],["rm",["iB0Vj7"]],["rm",["iB0Vh7"]],["rm",["iB0V48"]],["rm",["iB0V28"]],["rm",["iB0V08"]],["rm",["iB0Vz7"]],["rm",["iB0Vx7"]],["rm",["iB0Vv7"]],["rm",["iB0Vt7"]],["rm",["iB0Vr7"]],["rm",["iB0Vc7"]],["rm",["iB0Vd7"]],["rm",["iB0Ve7"]],["rm",["iB0Vf7"]],["rm",["iB0Vg7"]],["rm",["iB0Vx8"]],["rm",["iB0Vz8"]],["rm",["iB0V09"]],["rm",["iB0V29"]],["rm",["iB0V49"]],["rm",["iB0V69"]],["rm",["iB0V89"]],["rm",["iB0Va9"]],["rm",["iB0Vc9"]],["rm",["iB0Ve9"]],["rm",["iB0Vg9"]],["rm",["iB0Vi9"]],["rm",["iB0Vk9"]],["addChd",["iB0Vg2",[
+['zul.inp.Comboitem','iB0Vl9',{},{},[]]],[
+['zul.inp.Comboitem','iB0Vm9',{label:'Exclu\xEDdo'},{},[]]],[
+['zul.inp.Comboitem','iB0Vn9',{label:'Em Vigor'},{},[]]],[
+['zul.inp.Comboitem','iB0Vo9',{label:'Em vigor, mas com documenta\xE7\xE3o vencida'},{},[]]],[
+['zul.inp.Comboitem','iB0Vp9',{label:'Vencido'},{},[]]]]],["addChd",["iB0Vm2",[
+['zul.sel.Listitem','iB0Vq9',{$onDoubleClick:true,_loaded:true,_index:0},{},[
+['zul.sel.Listcell','iB0Vr9',{label:'Porte da Empresa'},{},[]]]]],[
+['zul.sel.Listitem','iB0Vs9',{$onDoubleClick:true,_loaded:true,_index:1},{},[
+['zul.sel.Listcell','iB0Vt9',{label:'UF'},{},[]]]]],[
+['zul.sel.Listitem','iB0Vu9',{$onDoubleClick:true,_loaded:true,_index:2},{},[
+['zul.sel.Listcell','iB0Vv9',{label:'Unidade Cadastradora'},{},[]]]]],[
+['zul.sel.Listitem','iB0Vw9',{$onDoubleClick:true,_loaded:true,_index:3},{},[
+['zul.sel.Listcell','iB0Vx9',{label:'Telefones'},{},[]]]]],[
+['zul.sel.Listitem','iB0Vy9',{$onDoubleClick:true,_loaded:true,_index:4},{},[
+['zul.sel.Listcell','iB0Vz9',{label:'E-mail'},{},[]]]]]]],["addChd",["iB0Vz2",[
+['zul.sel.Listitem','iB0V_a',{$onDoubleClick:true,disabled:true,_loaded:true,_index:0},{},[
+['zul.sel.Listcell','iB0V0a',{label:'CPF ou CNPJ do Fornecedor'},{},[]]]]],[
+['zul.sel.Listitem','iB0V1a',{$onDoubleClick:true,_loaded:true,_index:1},{},[
+['zul.sel.Listcell','iB0V2a',{label:'Nome Empresarial ou Nome do Fornecedor'},{},[]]]]],[
+['zul.sel.Listitem','iB0V3a',{$onDoubleClick:true,_loaded:true,_index:2},{},[
+['zul.sel.Listcell','iB0V4a',{label:'Munic\xEDpio'},{},[]]]]],[
+['zul.sel.Listitem','iB0V5a',{$onDoubleClick:true,_loaded:true,_index:3},{},[
+['zul.sel.Listcell','iB0V6a',{label:'Validade Cadastral'},{},[]]]]],[
+['zul.sel.Listitem','iB0V7a',{$onDoubleClick:true,_loaded:true,_index:4},{},[
+['zul.sel.Listcell','iB0V8a',{label:'Linhas de Fornecimento'},{},[]]]]],[
+['zul.sel.Listitem','iB0V9a',{$onDoubleClick:true,_loaded:true,_index:5},{},[
+['zul.sel.Listcell','iB0Vaa',{label:'Registro Cadastral'},{},[]]]]],[
+['zul.sel.Listitem','iB0Vba',{$onDoubleClick:true,_loaded:true,_index:6},{},[
+['zul.sel.Listcell','iB0Vca',{label:'Situa\xE7\xE3o Cadastro'},{},[]]]]],[
+['zul.sel.Listitem','iB0Vda',{$onDoubleClick:true,_loaded:true,_index:7},{},[
+['zul.sel.Listcell','iB0Vea',{label:'N\xFAmero do Cadastro'},{},[]]]]]]],["setAttr",[{$u:'iB0Vb3'},"_lastoffset",0]],["setAttr",[{$u:'iB0Vb3'},"resetDataLoader",true]],["setAttr",[{$u:'iB0Vb3'},"model",true]],["setAttr",[{$u:'iB0Vj1'},"_value",null]],["setAttr",[{$u:'iB0Vx1'},"_value",null]],["setAttr",[{$u:'iB0Vc1'},"value","CPF:"]],["setAttr",[{$u:'iB0Ve1'},"visible",false]],["setAttr",[{$u:'cpfInput'},"visible",true]],["setAttr",[{$u:'iB0Vh1'},"value","Nome:"]],["setAttr",[{$u:'iB0Vk1'},"visible",false]],["setAttr",[{$u:'iB0Ve1'},"_value",null]],["setAttr",[{$u:'cpfInput'},"_value",null]],["setAttr",[{$u:'iB0V02'},"_value",null]],["setAttr",[{$u:'iB0Vm2'},"_lastoffset",0]],["setAttr",[{$u:'iB0Vm2'},"resetDataLoader",true]],["setAttr",[{$u:'iB0Vm2'},"model",true]],["setAttr",[{$u:'iB0Vm2'},"visibleItemCount",20]],["setAttr",[{$u:'iB0Vz2'},"_lastoffset",0]],["setAttr",[{$u:'iB0Vz2'},"resetDataLoader",true]],["setAttr",[{$u:'iB0Vz2'},"model",true]],["setAttr",[{$u:'iB0Vz2'},"visibleItemCount",32]],["setAttr",[{$u:'iB0Vg2'},"repos",true]]],"rid":3}
